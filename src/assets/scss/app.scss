@@ -1,8 +1,16 @@
 @import "~bootstrap-scss/bootstrap.scss";
-@import 'theme/variables';
-@import 'theme/admin_style';
-@import 'theme/rtl';
-@import 'flag-icon.scss';
-@import 'themify.scss';
-@import 'icoicon/icons';
-@import 'font-awesome.scss';
+@import "theme/variables";
+@import "theme/admin_style";
+@import "theme/rtl";
+@import "flag-icon.scss";
+@import "themify.scss";
+@import "icoicon/icons";
+@import "font-awesome.scss";
+
+// @import "theme/variables.scss";
+// @import "theme/admin_style.scss";
+// @import "theme/rtl.scss";
+@import "theme/dark.scss";
+@import "theme/menu.scss";
+@import "theme/responsive.scss";
+@import "theme/style.scss";

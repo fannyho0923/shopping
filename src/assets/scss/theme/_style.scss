@@ -1,0 +1,165 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name:Multikart
+    Template URI: themes.pixelstrap.com/multikart
+    Description: This is E-commerce website
+    Author: Pixelstrap
+    Author URI: https://themeforest.net/user/pixelstrap
+
+----------------------------------------------------------------------------------- */
+/* 1. General CSS
+   1.1. Button CSS
+   1.2. Title CSS
+   1.3. Brand logo CSS */
+/* 2. Header CSS */
+/* 3. Home slider CSS  */
+/* 4. Instagram CSS  */
+/* 5. Blog CSS */
+/* 6. Service CSS  */
+/* 7. About CSS  */
+/* 8. Banner Timer CSS  */
+/* 9. Category CSS */
+/* 10. Product Box CSS */
+/* 11. Theme tab CSS */
+/* 12. Banner CSS */
+/* 13. Collection Banner CSS */
+/* 14. Product-box slider CSS */
+/* 15. Modal popup CSS */
+/* 16. Look-book CSS */
+/* 17. Demo css
+   17.1. look-book
+   17.2. beauty demo
+   17.3. electronics
+   17.4. pets demo
+   17.5. metro demo
+   17.6. gym demo
+   17.7. extra layout css */
+/* 18. Flying products CSS */
+/* 19. Footer CSS */
+/* 20. Loader CSS*/
+/* 21. Tap to top CSS */
+/* 22. theme setting css */
+/* 23. Inner pages CSS */
+/* 26. Menu CSS */
+/* 27. Responsive CSS */
+/*=====================
+    1.General CSS start
+==========================*/
+
+// Check-out page //
+.checkout-details {
+  width: 100%;
+  position: relative;
+  background-color: $grey-lighter;
+  border: 1px solid $round-border;
+  padding: 40px;
+}
+.order-box {
+  position: relative;
+  margin-bottom: 50px;
+  .title-box {
+    position: relative;
+    padding-bottom: 25px;
+    color: $grey4;
+    font-weight: 600;
+    font-size: 22px;
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 20px;
+    span {
+      position: relative;
+      width: 35%;
+      float: right;
+      line-height: 1.2em;
+    }
+  }
+  .qty {
+    position: relative;
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 30px;
+    li {
+      position: relative;
+      display: block;
+      font-size: 15px;
+      color: $grey4;
+      line-height: 20px;
+      margin-bottom: 20px;
+      span {
+        float: right;
+        font-size: 18px;
+        line-height: 20px;
+        color: $dark-top;
+        font-weight: 400;
+        width: 35%;
+      }
+    }
+  }
+  .sub-total {
+    position: relative;
+    border-bottom: 1px solid $round-border;
+    margin-bottom: 30px;
+    li {
+      position: relative;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      color: $font-color;
+      line-height: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      .count {
+        position: relative;
+        font-size: 18px;
+        line-height: 20px;
+        color: var(--theme-deafult);
+        font-weight: 400;
+        width: 35%;
+        float: right;
+      }
+    }
+    .shopping-option {
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+      label {
+        position: relative;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 10px;
+        color: $grey6;
+      }
+    }
+    .shipping {
+      width: 35%;
+      float: right;
+    }
+  }
+  .total {
+    position: relative;
+    margin-bottom: 40px;
+    li {
+      position: relative;
+      display: block;
+      font-weight: 400;
+      color: $font-color;
+      line-height: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      .count {
+        position: relative;
+        font-size: 18px;
+        line-height: 20px;
+        color: var(--theme-deafult);
+        font-weight: 400;
+      }
+      span {
+        float: right;
+        font-size: 15px;
+        line-height: 20px;
+        color: $grey4;
+        font-weight: 400;
+        width: 35%;
+        display: block;
+      }
+    }
+  }
+}

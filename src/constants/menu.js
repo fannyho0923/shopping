@@ -3,15 +3,8 @@ import {
   Box,
   DollarSign,
   Tag,
-  Clipboard,
-  Camera,
-  AlignLeft,
   UserPlus,
-  Users,
   Chrome,
-  BarChart,
-  Settings,
-  Archive,
   LogIn,
 } from "react-feather";
 
@@ -25,7 +18,7 @@ export const MENUITEMS = [
     active: false,
   },
   {
-    title: "Products",
+    title: "商品管理",
     icon: Box,
     type: "sub",
     active: false,
@@ -37,54 +30,27 @@ export const MENUITEMS = [
         children: [
           {
             path: "/products/physical/category",
-            title: "Category",
-            type: "link",
-          },
-          {
-            path: "/products/physical/sub-category",
-            title: "Sub Category",
+            title: "商品清單",
             type: "link",
           },
           {
             path: "/products/physical/product-list",
-            title: "Product List",
+            title: "商城預覽",
             type: "link",
           },
           {
             path: "/products/physical/product-detail",
-            title: "Product Detail",
+            title: "商品預覽",
             type: "link",
           },
           {
             path: "/products/physical/add-product",
-            title: "Add Product",
-            type: "link",
-          },
-        ],
-      },
-      {
-        title: "digital",
-        type: "sub",
-        active: false,
-        children: [
-          {
-            path: "/products/digital/digital-category",
-            title: "Category",
+            title: "新增商品",
             type: "link",
           },
           {
-            path: "/products/digital/digital-sub-category",
-            title: "Sub Category",
-            type: "link",
-          },
-          {
-            path: "/products/digital/digital-product-list",
-            title: "Product List",
-            type: "link",
-          },
-          {
-            path: "/products/digital/digital-add-product",
-            title: "Add Product",
+            path: "/products/physical/product-type",
+            title: "商品類別",
             type: "link",
           },
         ],
@@ -92,17 +58,14 @@ export const MENUITEMS = [
     ],
   },
   {
-    title: "Sales",
+    title: "訂單管理",
     icon: DollarSign,
     type: "sub",
     active: false,
-    children: [
-      { path: "/sales/orders", title: "Orders", type: "link" },
-      { path: "/sales/transactions", title: "Transactions", type: "link" },
-    ],
+    children: [{ path: "/sales/orders", title: "sales", type: "link" }],
   },
   {
-    title: "Coupons",
+    title: "折扣券",
     icon: Tag,
     type: "sub",
     active: false,
@@ -116,34 +79,7 @@ export const MENUITEMS = [
     ],
   },
   {
-    title: "Pages",
-    icon: Clipboard,
-    type: "sub",
-    active: false,
-    children: [
-      { path: "/pages/list-page", title: "List Page", type: "link" },
-      { path: "/pages/create-page", title: "Create Page", type: "link" },
-    ],
-  },
-  {
-    title: "Media",
-    path: "/media",
-    icon: Camera,
-    type: "link",
-    active: false,
-  },
-  {
-    title: "Menus",
-    icon: AlignLeft,
-    type: "sub",
-    active: false,
-    children: [
-      { path: "/menus/list-menu", title: "List Menu", type: "link" },
-      { path: "/menus/create-menu", title: "Create Menu", type: "link" },
-    ],
-  },
-  {
-    title: "Users",
+    title: "後台權限設定",
     icon: UserPlus,
     type: "sub",
     active: false,
@@ -153,52 +89,20 @@ export const MENUITEMS = [
     ],
   },
   {
-    title: "Vendors",
-    icon: Users,
+    title: "到店取貨系統",
+    icon: DollarSign,
     type: "sub",
     active: false,
     children: [
-      { path: "/vendors/list_vendors", title: "Vendor List", type: "link" },
-      { path: "/vendors/create-vendors", title: "Create Vendor", type: "link" },
+      { path: "/get-product/get-product", title: "到店取貨系統", type: "link" },
     ],
   },
   {
-    title: "Localization",
-    icon: Chrome,
+    title: "贈品後台",
+    icon: DollarSign,
     type: "sub",
-    children: [
-      {
-        path: "/localization/transactions",
-        title: "Translations",
-        type: "link",
-      },
-      {
-        path: "/localization/currency-rates",
-        title: "Currency Rates",
-        type: "link",
-      },
-      { path: "/localization/taxes", title: "Taxes", type: "link" },
-    ],
-  },
-  {
-    title: "Reports",
-    path: "/reports/report",
-    icon: BarChart,
-    type: "link",
     active: false,
-  },
-  {
-    title: "Settings",
-    icon: Settings,
-    type: "sub",
-    children: [{ path: "/settings/profile", title: "Profile", type: "link" }],
-  },
-  {
-    title: "Invoice",
-    path: "/invoice",
-    icon: Archive,
-    type: "link",
-    active: false,
+    children: [{ path: "/giveaway/giveaway", title: "贈品後台", type: "link" }],
   },
   {
     title: "Login",
