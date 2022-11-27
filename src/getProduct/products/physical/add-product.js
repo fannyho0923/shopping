@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Breadcrumb from "../../common/breadcrumb";
+import Breadcrumb from "../common/breadcrumb";
 import DateTimePicker from "react-datetime-picker";
 import {
   Card,
@@ -19,10 +19,10 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap";
-import one from "../../../assets/images/pro3/1.jpg";
-import user from "../../../assets/images/user.png";
+import one from "../../assets/images/pro3/1.jpg";
+import user from "../../assets/images/user.png";
 import MDEditor from "@uiw/react-md-editor";
-import productTypes from "../../../assets/data/productTypes";
+import productTypes from "../../assets/data/productTypes";
 
 const Add_product = () => {
   const [value, setValue] = useState("");
@@ -100,7 +100,7 @@ const Add_product = () => {
   const handleValidSubmit = () => {};
   return (
     <Fragment>
-      <Breadcrumb title="Add Product" parent="Physical" />
+      <Breadcrumb title="Add Product" parent="" />
 
       <Container fluid={true}>
         <Row>

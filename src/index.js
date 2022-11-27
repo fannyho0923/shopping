@@ -4,13 +4,13 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import Routers from "./routes";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { FormattedMessage, IntlProvider } from "react-intl";
+import { FormattedMessage, FormattedNumber, IntlProvider } from "react-intl";
 import en from "./i18n/en.js";
 import zh from "./i18n/zh.js";
 
 const Root = () => {
   const [locale, setLocale] = useState(navigator.language);
-
+  console.log(locale);
   let messages;
 
   // 根據使用者選擇的語系 locale 切換使用不同的 messages
@@ -24,13 +24,10 @@ const Root = () => {
     <React.StrictMode>
       <BrowserRouter basename={"/"}>
         <PerfectScrollbar>
-          <IntlProvider
-            locale={locale}
-            key={locale}
-            defaultLocale="en"
-            messages={messages}
-          >
-            <FormattedMessage id="app.learn" values={{ name: "React" }} />
+          <IntlProvider locale={locale} defaultLocale="en" messages={messages}>
+            <FormattedMessage id="app.learn" values={{ name: "fanny" }} />
+            <button onClick={() => setLocale("en")}>英文</button>
+            <button onClick={() => setLocale("zh-Hant")}>中文</button>
             <Routers setLocale={setLocale} />
           </IntlProvider>
         </PerfectScrollbar>

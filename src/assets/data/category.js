@@ -26,8 +26,6 @@ const data = [
     product_id: "1234567",
     product_name: "Headphones",
     類型: "Electronics",
-    主規格: "主規格",
-    副規格: "副規格",
     price: "$20.00",
     status: <i className="fa fa-circle font-warning f-12" />,
     庫存: 3,

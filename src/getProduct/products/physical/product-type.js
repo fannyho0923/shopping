@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
-import Breadcrumb from "../../../components/common/breadcrumb.js";
-import data from "../../../assets/data/productTypes";
-import Datatable from "../../common/datatable";
+import Breadcrumb from "../../components/common/breadcrumb.js";
+import data from "../../assets/data/productTypes";
+import Datatable from "../common/datatable";
 import { ToastContainer, toast } from "react-toastify";
 
 import {

@@ -14,27 +14,27 @@ import ServiceLayout from "../../components/common/Service/service1.js";
 
 const TeamData = [
   {
-    img: '/assets/images/team/1.jpg',
+    img: "/assets/images/team/1.jpg",
     name: "Hileri Keol",
     post: "CEo & Founder At Company",
   },
   {
-    img: '/assets/images/team/2.jpg',
+    img: "/assets/images/team/2.jpg",
     name: "Hileri Keol",
     post: "CEo & Founder At Company",
   },
   {
-    img: '/assets/images/team/3.jpg',
+    img: "/assets/images/team/3.jpg",
     name: "Hileri Keol",
     post: "CEo & Founder At Company",
   },
   {
-    img: '/assets/images/team/4.jpg',
+    img: "/assets/images/team/4.jpg",
     name: "Hileri Keol",
     post: "CEo & Founder At Company",
   },
   {
-    img: '/assets/images/team/1.jpg',
+    img: "/assets/images/team/1.jpg",
     name: "Hileri Keol",
     post: "CEo & Founder At Company",
   },
@@ -54,42 +54,42 @@ const Team = ({ img, name, post }) => {
 
 const TeamDetailData = [
   {
-    img: '/assets/images/avtar.jpg',
+    img: "/assets/images/avtar.jpg",
     name: "mark jenco",
     post: "designer",
     about:
       "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
   },
   {
-    img: '/assets/images/2.jpg',
+    img: "/assets/images/2.jpg",
     name: "mark jenco",
     post: "designer",
     about:
       "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
   },
   {
-    img: '/assets/images/avtar.jpg',
+    img: "/assets/images/avtar.jpg",
     name: "mark jenco",
     post: "designer",
     about:
       "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
   },
   {
-    img: '/assets/images/avtar.jpg',
+    img: "/assets/images/avtar.jpg",
     name: "mark jenco",
     post: "designer",
     about:
       "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
   },
   {
-    img: '/assets/images/avtar.jpg',
+    img: "/assets/images/avtar.jpg",
     name: "mark jenco",
     post: "designer",
     about:
       "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
   },
   {
-    img: '/assets/images/avtar.jpg',
+    img: "/assets/images/avtar.jpg",
     name: "mark jenco",
     post: "designer",
     about:
@@ -124,7 +124,8 @@ const AboutUs = () => {
               <Col lg="12">
                 <div className="banner-section">
                   <Media
-                    src={aboutus.src}
+                    src=""
+                    // src={aboutus.src}
                     className="img-fluid blur-up lazyload"
                     alt=""
                   />

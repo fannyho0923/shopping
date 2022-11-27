@@ -18,12 +18,12 @@ import Digitaladdpro from "../components/products/digital/digital-add-pro";
 import Digitalcategory from "../components/products/digital/digital-category";
 import Digitalprolist from "../components/products/digital/digital-pro-list";
 import Digitalsubcategory from "../components/products/digital/digital-sub-category";
-import Addproduct from "../components/products/physical/add-product";
-import ProductType from "../components/products/physical/product-types";
-import Category from "../components/products/physical/category";
-import Productdetail from "../components/products/physical/product-detail";
-import Productlist from "../components/products/physical/product-list";
-import Subcategory from "../components/products/physical/sub-category";
+import Addproduct from "../components/products/add-product";
+import ProductType from "../components/products/product-types";
+import Category from "../components/products/category";
+import Productdetail from "../components/products/product-detail";
+import Productlist from "../components/products/product-list";
+import Subcategory from "../components/products/sub-category";
 import Reports from "../components/reports/report";
 import Orders from "../components/sales/orders";
 import Transactionsales from "../components/sales/transactions-sales";
@@ -46,27 +46,27 @@ const LayoutRoutes = ({ setLocale }) => {
           />
 
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/category`}
+            path={`${process.env.PUBLIC_URL}/products/category`}
             element={<Category />}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/sub-category`}
+            path={`${process.env.PUBLIC_URL}/products/sub-category`}
             element={<Subcategory />}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/product-list`}
+            path={`${process.env.PUBLIC_URL}/products/product-list`}
             element={<Productlist />}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/product-detail`}
+            path={`${process.env.PUBLIC_URL}/products/product-detail`}
             element={<Productdetail />}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/add-product`}
+            path={`${process.env.PUBLIC_URL}/products/add-product`}
             element={<Addproduct />}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/product-type`}
+            path={`${process.env.PUBLIC_URL}/products/product-type`}
             element={<ProductType />}
           />
           <Route

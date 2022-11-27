@@ -9,14 +9,14 @@ import {
 } from "react-feather";
 
 export const MENUITEMS = [
-  {
-    path: "/dashboard",
-    title: "Dashboard",
-    icon: Home,
-    type: "link",
-    badgeType: "primary",
-    active: false,
-  },
+  // {
+  //   path: "/dashboard",
+  //   title: "Dashboard",
+  //   icon: Home,
+  //   type: "link",
+  //   badgeType: "primary",
+  //   active: false,
+  // },
   {
     title: "商品管理",
     icon: Box,
@@ -24,36 +24,29 @@ export const MENUITEMS = [
     active: false,
     children: [
       {
-        title: "Physical",
-        type: "sub",
-        active: false,
-        children: [
-          {
-            path: "/products/physical/category",
-            title: "商品清單",
-            type: "link",
-          },
-          {
-            path: "/products/physical/product-list",
-            title: "商城預覽",
-            type: "link",
-          },
-          {
-            path: "/products/physical/product-detail",
-            title: "商品預覽",
-            type: "link",
-          },
-          {
-            path: "/products/physical/add-product",
-            title: "新增商品",
-            type: "link",
-          },
-          {
-            path: "/products/physical/product-type",
-            title: "商品類別",
-            type: "link",
-          },
-        ],
+        path: "/products/category",
+        title: "商品清單",
+        type: "link",
+      },
+      {
+        path: "/products/product-list",
+        title: "商城預覽",
+        type: "link",
+      },
+      {
+        path: "/products/product-detail",
+        title: "商品預覽",
+        type: "link",
+      },
+      {
+        path: "/products/add-product",
+        title: "新增商品",
+        type: "link",
+      },
+      {
+        path: "/products/product-type",
+        title: "商品類別",
+        type: "link",
       },
     ],
   },

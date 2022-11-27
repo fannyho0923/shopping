@@ -1,5 +1,6 @@
 {
   "name": "backend-class",
+  "homepage": "https://fannyho0923.github.io/shopping",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +11,7 @@
     "bootstrap": "^5.1.3",
     "bootstrap-scss": "^5.1.1",
     "chart.js": "^3.8.0",
+    "gh-pages": "^4.0.0",
     "i": "^0.3.7",
     "next-fonts": "^1.5.1",
     "npm": "^8.13.2",
@@ -42,6 +44,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
