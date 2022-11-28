@@ -34,15 +34,15 @@ import fashion14 from "../images/fashion/product/14.jpg";
 const data = [
   {
     number: "#51240",
-    name: "one",
+    name: "類別一",
   },
   {
     number: "#51245",
-    name: "two",
+    name: "類別二",
   },
   {
     number: "#51250",
-    name: "three",
+    name: "類別三",
   },
 ];
 

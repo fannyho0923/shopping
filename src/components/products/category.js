@@ -3,6 +3,8 @@ import Breadcrumb from "../common/breadcrumb";
 import "react-toastify/dist/ReactToastify.css";
 import { data } from "../../assets/data/category";
 import Datatable from "../common/datatable";
+import DateTimePicker from "react-datetime-picker";
+
 import {
   Button,
   Card,
@@ -20,6 +22,89 @@ import {
   ModalHeader,
   Row,
 } from "reactstrap";
+
+const ProductForm = () => {
+  const [startDateTime, onChangeStartDateTime] = useState(
+    new Date().setMinutes(new Date().getMinutes() + 1)
+  );
+
+  const [endDateTime, onChangeEndDateTime] = useState(
+    new Date().setMinutes(new Date().getMinutes() + 1)
+  );
+  return (
+    <Form>
+      <FormGroup>
+        <Label htmlFor="recipient-name" className="col-form-label">
+          Image :
+        </Label>
+        <Input type="file" className="form-control" />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Product_id :
+        </Label>
+        <Input type="number" className="form-control" />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Product_name :
+        </Label>
+        <Input type="text" className="form-control" />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Product_type :
+        </Label>
+        <select className="form-control digits" id="exampleFormControlSelect1">
+          <option>類別一</option>
+          <option>類別二</option>
+          <option>類別三</option>
+        </select>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Price :
+        </Label>
+        <Input className="form-control" type="number" />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Status :
+        </Label>
+        <select className="form-control digits" id="exampleFormControlSelect1">
+          <option>一</option>
+          <option>二</option>
+          <option>三</option>
+        </select>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Stock :
+        </Label>
+        <Input className="form-control" type="number" />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          Start_time :
+        </Label>
+        <div className="col-md-7">
+          <DateTimePicker
+            onChange={onChangeStartDateTime}
+            value={startDateTime}
+          />
+        </div>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="message-text" className="col-form-label">
+          End_time :
+        </Label>
+        <div className="col-md-7">
+          <DateTimePicker onChange={onChangeEndDateTime} value={endDateTime} />
+        </div>
+      </FormGroup>
+    </Form>
+  );
+};
 
 const Category = () => {
   const [open, setOpen] = useState(false);
@@ -65,30 +150,7 @@ const Category = () => {
                       </h5>
                     </ModalHeader>
                     <ModalBody>
-                      <Form>
-                        <FormGroup>
-                          <Label
-                            htmlFor="recipient-name"
-                            className="col-form-label"
-                          >
-                            Category Name :
-                          </Label>
-                          <Input type="text" className="form-control" />
-                        </FormGroup>
-                        <FormGroup>
-                          <Label
-                            htmlFor="message-text"
-                            className="col-form-label"
-                          >
-                            Category Image :
-                          </Label>
-                          <Input
-                            className="form-control"
-                            id="validationCustom02"
-                            type="file"
-                          />
-                        </FormGroup>
-                      </Form>
+                      <ProductForm />
                     </ModalBody>
                     <ModalFooter>
                       <Button
@@ -116,7 +178,9 @@ const Category = () => {
                     pageSize={10}
                     pagination={true}
                     class="-striped -highlight"
-                  />
+                  >
+                    <ProductForm />
+                  </Datatable>
                 </div>
               </CardBody>
             </Card>

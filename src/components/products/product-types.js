@@ -106,7 +106,7 @@ const ProductType = () => {
                         htmlFor="recipient-name"
                         className="col-form-label"
                       >
-                        商品名稱 :
+                        商品類別名稱 :
                       </Label>
                       <Input type="text" className="form-control" />
                     </FormGroup>

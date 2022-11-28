@@ -299,6 +299,7 @@ const Datatable = ({
     <div>
       <Fragment>
         <DataTable
+          style={{ backgroundColor: "pink" }}
           data={data}
           columns={columns}
           className={myClass}

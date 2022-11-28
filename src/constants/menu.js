@@ -1,22 +1,6 @@
-import {
-  Home,
-  Box,
-  DollarSign,
-  Tag,
-  UserPlus,
-  Chrome,
-  LogIn,
-} from "react-feather";
+import { Box, DollarSign, Tag, UserPlus, LogIn } from "react-feather";
 
 export const MENUITEMS = [
-  // {
-  //   path: "/dashboard",
-  //   title: "Dashboard",
-  //   icon: Home,
-  //   type: "link",
-  //   badgeType: "primary",
-  //   active: false,
-  // },
   {
     title: "商品管理",
     icon: Box,
@@ -95,7 +79,9 @@ export const MENUITEMS = [
     icon: DollarSign,
     type: "sub",
     active: false,
-    children: [{ path: "/giveaway/giveaway", title: "贈品後台", type: "link" }],
+    path: "/giveaway/giveaway",
+    title: "贈品後台",
+    type: "link",
   },
   {
     title: "Login",

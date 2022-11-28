@@ -46,9 +46,9 @@ const ProductType = () => {
   // };
 
   const arr = [
-    { number: 111, name: "aaa" },
-    { number: 222, name: "bbb" },
-    { number: 333, name: "ccc" },
+    { number: "贈品一", name: "giveaway1" },
+    { number: "贈品二", name: "giveaway2" },
+    { number: "贈品三", name: "giveaway3" },
   ];
 
   const handleAdd = () => {
@@ -132,22 +132,6 @@ const ProductType = () => {
                       <div className="form form-label-center"> */}
 
             <Form>
-              <FormGroup className="form-group mb-3 row">
-                <Label htmlFor="recipient-name" className="col-form-label">
-                  商品ID :
-                </Label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  onChange={onChange}
-                  style={{ width: "70%" }}
-                />
-                <Label htmlFor="message-text" className="col-form-label">
-                  印單用，建議填寫長度較短的中英文字串
-                  <br />
-                  勿超過3個字
-                </Label>
-              </FormGroup>
               <FormGroup className="form-group mb-3 row">
                 <Label htmlFor="recipient-name" className="col-form-label">
                   贈品名稱 :

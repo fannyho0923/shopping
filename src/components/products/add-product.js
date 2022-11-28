@@ -30,6 +30,7 @@ const Add_product = () => {
   const [previewImg, setPreviewImg] = useState(one);
   const [typeMajor, setTypeMajor] = useState(true);
   const [typeCondition, setTypeCondition] = useState(false);
+  const [endTime, setEndTime] = useState(false);
   const [dummyimgs, setDummyimgs] = useState([
     { img: user },
     { img: user },
@@ -37,8 +38,12 @@ const Add_product = () => {
   ]);
 
   const [open, setOpen] = useState(false);
-  const [startDateTime, onChangeStartDateTime] = useState(new Date());
-  const [endDateTime, onChangeEndDateTime] = useState(new Date());
+  const [startDateTime, onChangeStartDateTime] = useState(
+    new Date().setMinutes(new Date().getMinutes() + 1)
+  );
+  const [endDateTime, onChangeEndDateTime] = useState(
+    new Date().setMinutes(new Date().getMinutes() + 1)
+  );
 
   const onChange = (e) => {
     setValue(e);
@@ -163,12 +168,10 @@ const Add_product = () => {
                               display: "flex",
                               justifyContent: "space-between",
                               alignItems: "center",
-                              // marginLeft: "6rem",
                             }}
                           >
                             <div
                               style={{
-                                // width: "33%",
                                 display: "flex",
                               }}
                             >
@@ -179,30 +182,39 @@ const Add_product = () => {
                                   type="radio"
                                   name="rdo-ani1"
                                   defaultChecked
-                                  onFocus={() => setTypeMajor(true)}
+                                  onClick={() => {
+                                    setTypeMajor(true);
+                                    setTypeCondition(false);
+                                  }}
                                 />
                                 主要
                               </Label>
-                              <Label className="d-block form-label">
+                              <Label
+                                style={{ marginLeft: "1rem" }}
+                                className="d-block form-label"
+                              >
                                 <Input
                                   className="radio_animated"
                                   id="edo-ani4"
                                   type="radio"
                                   name="rdo-ani1"
-                                  onFocus={() => setTypeMajor(false)}
+                                  onClick={() => setTypeMajor(false)}
                                 />
                                 加價購
                               </Label>
                             </div>
                             {!typeMajor && (
-                              <div>
+                              <div
+                                style={{ display: "flex", margin: "0 1rem" }}
+                              >
                                 <div>
                                   <Label className="d-block form-label">
                                     <Input
                                       className="radio_animated"
                                       type="radio"
                                       name="condition"
-                                      onFocus={() => setTypeCondition(false)}
+                                      defaultChecked
+                                      onClick={() => setTypeCondition(false)}
                                     />
                                     無條件
                                   </Label>
@@ -211,7 +223,7 @@ const Add_product = () => {
                                       className="radio_animated"
                                       type="radio"
                                       name="condition"
-                                      onFocus={() => setTypeCondition(true)}
+                                      onClick={() => setTypeCondition(true)}
                                     />
                                     滿額
                                   </Label>
@@ -220,7 +232,7 @@ const Add_product = () => {
                                       className="radio_animated"
                                       type="radio"
                                       name="condition"
-                                      onFocus={() => setTypeCondition(true)}
+                                      onClick={() => setTypeCondition(true)}
                                     />
                                     滿件
                                   </Label>
@@ -228,7 +240,7 @@ const Add_product = () => {
                                 {typeCondition && (
                                   <div
                                     style={{
-                                      width: "33%",
+                                      marginLeft: "1rem",
                                     }}
                                   >
                                     <Label id="trtr" className="form-label">
@@ -353,9 +365,45 @@ const Add_product = () => {
                           </Button>
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
-                          <Label className="col-xl-3 col-sm-4 mb-0">
-                            販售時間 :
-                          </Label>
+                          <div
+                            style={{ display: "flex", marginBottom: "1rem" }}
+                          >
+                            <Label className="col-xl-3 col-sm-4 mb-0">
+                              販售時間 :
+                            </Label>
+                            <div
+                              style={{
+                                display: "flex",
+                              }}
+                            >
+                              <Label>
+                                <Input
+                                  className="radio_animated"
+                                  id="edo-ani3"
+                                  type="radio"
+                                  name="rdo-ani1"
+                                  defaultChecked
+                                  onClick={() => {
+                                    setEndTime(false);
+                                  }}
+                                />
+                                立即上架
+                              </Label>
+                              <Label
+                                style={{ marginLeft: "1rem" }}
+                                className="d-block form-label"
+                              >
+                                <Input
+                                  className="radio_animated"
+                                  id="edo-ani4"
+                                  type="radio"
+                                  name="rdo-ani1"
+                                  onClick={() => setEndTime(true)}
+                                />
+                                限時上架
+                              </Label>
+                            </div>
+                          </div>
                           <div className="form-group row">
                             <Label className="col-xl-3 col-md-4">開始</Label>
                             <div className="col-md-7">
@@ -365,15 +413,17 @@ const Add_product = () => {
                               />
                             </div>
                           </div>
-                          <div className="form-group row">
-                            <Label className="col-xl-3 col-md-4">結束</Label>
-                            <div className="col-md-7">
-                              <DateTimePicker
-                                onChange={onChangeEndDateTime}
-                                value={endDateTime}
-                              />
+                          {endTime && (
+                            <div className="form-group row">
+                              <Label className="col-xl-3 col-md-4">結束</Label>
+                              <div className="col-md-7">
+                                <DateTimePicker
+                                  onChange={onChangeEndDateTime}
+                                  value={endDateTime}
+                                />
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4">
