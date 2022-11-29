@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopping/static/css/main.22aedd49.css",
-    "main.js": "/shopping/static/js/main.1da337e4.js",
+    "main.js": "/shopping/static/js/main.4e640d18.js",
     "static/media/icofont.svg?v=1.0.0-beta": "/shopping/static/media/icofont.9999a483fca7c18fdec0.svg",
     "static/media/icofont.eot?v=1.0.0-beta": "/shopping/static/media/icofont.556fa8050e7e3b9a829d.eot",
     "static/media/icofont.ttf?v=1.0.0-beta": "/shopping/static/media/icofont.dae25655dd28a58eb576.ttf",
@@ -69,6 +69,7 @@
     "static/media/sa.svg": "/shopping/static/media/sa.e49d3e68a6cb9dfab47c.svg",
     "static/media/pn.svg": "/shopping/static/media/pn.b1206b05a54d1c3bc3f1.svg",
     "static/media/im.svg": "/shopping/static/media/im.7727379719619a2641e1.svg",
+    "static/media/logo.png": "/shopping/static/media/logo.6e38e2f1c070436fcbc7.png",
     "static/media/aw.svg": "/shopping/static/media/aw.8d6832f32071d02ecd6d.svg",
     "static/media/md.svg": "/shopping/static/media/md.f0d2c0493afde36a5ac1.svg",
     "static/media/gb-wls.svg": "/shopping/static/media/gb-wls.ced5b710269cb832d4ca.svg",
@@ -299,10 +300,10 @@
     "static/media/de.svg": "/shopping/static/media/de.32cd606b653fdcc4a90c.svg",
     "static/media/bd.svg": "/shopping/static/media/bd.571e114056c8791c87dd.svg",
     "main.22aedd49.css.map": "/shopping/static/css/main.22aedd49.css.map",
-    "main.1da337e4.js.map": "/shopping/static/js/main.1da337e4.js.map"
+    "main.4e640d18.js.map": "/shopping/static/js/main.4e640d18.js.map"
   },
   "entrypoints": [
     "static/css/main.22aedd49.css",
-    "static/js/main.1da337e4.js"
+    "static/js/main.4e640d18.js"
   ]
 }
