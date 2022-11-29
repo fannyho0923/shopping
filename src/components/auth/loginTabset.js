@@ -13,7 +13,7 @@ const LoginTabset = () => {
   };
 
   const routeChange = () => {
-    history(`${process.env.PUBLIC_URL}/dashboard`);
+    history(`${process.env.PUBLIC_URL}/products/add-product`);
   };
   return (
     <div>
