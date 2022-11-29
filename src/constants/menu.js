@@ -84,7 +84,7 @@ export const MENUITEMS = [
     type: "link",
   },
   {
-    title: "Login",
+    title: "Logout",
     path: "/auth/login",
     icon: LogIn,
     type: "link",

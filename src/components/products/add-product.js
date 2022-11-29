@@ -279,7 +279,7 @@ const Add_product = () => {
                                 className="form-control mb-0"
                                 name="price"
                                 id="validationCustom02"
-                                type="number"
+                                type="text"
                                 required
                               />
                             </div>
@@ -294,7 +294,7 @@ const Add_product = () => {
                                 className="form-control mb-0"
                                 name="price"
                                 id="validationCustom02"
-                                type="number"
+                                type="text"
                                 required
                               />
                             </div>
@@ -326,6 +326,7 @@ const Add_product = () => {
                             <div className="input-group bootstrap-touchspin">
                               <div className="input-group-prepend">
                                 <Button
+                                  style={{ zIndex: 1 }}
                                   className="btn btn-primary btn-square bootstrap-touchspin-down"
                                   type="button"
                                   onClick={DecreaseItem}
@@ -347,6 +348,7 @@ const Add_product = () => {
                               </div>
                               <div className="input-group-append ms-0">
                                 <Button
+                                  style={{ zIndex: 1 }}
                                   className="btn btn-primary btn-square bootstrap-touchspin-up"
                                   type="button"
                                   onClick={IncrementItem}
@@ -356,13 +358,21 @@ const Add_product = () => {
                               </div>
                             </div>
                           </fieldset>
-                          <Button
-                            type="button"
-                            className="col-sm-2"
-                            onClick={onOpenModal}
-                          >
-                            供貨狀態
-                          </Button>
+                        </FormGroup>
+                        <FormGroup className="form-group mb-3 row">
+                          <Label className="col-xl-3 col-sm-4 mb-0">
+                            供貨狀態 :
+                          </Label>
+                          <div className="col-xl-8 col-sm-7">
+                            <select
+                              className="form-control digits"
+                              id="exampleFormControlSelect1"
+                            >
+                              <option value="">有現貨</option>
+                              <option value="">已完售</option>
+                              <option value="">關閉</option>
+                            </select>
+                          </div>
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <div
@@ -379,9 +389,9 @@ const Add_product = () => {
                               <Label>
                                 <Input
                                   className="radio_animated"
-                                  id="edo-ani3"
+                                  id="edo-ani5"
                                   type="radio"
-                                  name="rdo-ani1"
+                                  name="rdo-ani2"
                                   defaultChecked
                                   onClick={() => {
                                     setEndTime(false);
@@ -395,9 +405,9 @@ const Add_product = () => {
                               >
                                 <Input
                                   className="radio_animated"
-                                  id="edo-ani4"
+                                  id="edo-ani6"
                                   type="radio"
-                                  name="rdo-ani1"
+                                  name="rdo-ani2"
                                   onClick={() => setEndTime(true)}
                                 />
                                 限時上架

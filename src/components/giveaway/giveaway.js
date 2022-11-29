@@ -142,16 +142,13 @@ const ProductType = () => {
                   onChange={onChange}
                   style={{ width: "70%" }}
                 />
-                <Label htmlFor="message-text" className="col-form-label">
-                  範例:強效美白面膜
-                </Label>
               </FormGroup>
               <FormGroup className="form-group mb-3 row">
                 <Label htmlFor="recipient-name" className="col-form-label">
                   庫存量 :
                 </Label>
                 <Input
-                  type="number"
+                  type="text"
                   className="form-control"
                   onChange={onChange}
                   style={{ width: "70%" }}
