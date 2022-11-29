@@ -29,7 +29,7 @@ const App = ({setLocale}) => {
 		<div>
 			<div className="page-wrapper">
 				<Header setLocale={setLocale} >
-				<FormattedMessage id="app.learn" values={{ name: "fanny" }} />
+				{/* <FormattedMessage id="app.learn" values={{ name: "fanny" }} /> */}
 				</Header>
 				<div className="page-body-wrapper">
 					<Sidebar />

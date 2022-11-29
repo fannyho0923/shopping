@@ -230,8 +230,6 @@ const Datatable = ({
     });
   } else {
     columns.push({
-      name: <b>Action</b>,
-      id: "delete",
       accessor: (str) => "delete",
       cell: (row, index) => (
         <div>

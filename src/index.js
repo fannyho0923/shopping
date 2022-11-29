@@ -25,9 +25,9 @@ const Root = () => {
       <BrowserRouter basename={"/"}>
         <PerfectScrollbar>
           <IntlProvider locale={locale} defaultLocale="en" messages={messages}>
-            <FormattedMessage id="app.learn" values={{ name: "fanny" }} />
-            <button onClick={() => setLocale("en")}>英文</button>
-            <button onClick={() => setLocale("zh-Hant")}>中文</button>
+            {/* <FormattedMessage id="app.learn" values={{ name: "fanny" }} /> */}
+            {/* <button onClick={() => setLocale("en")}>英文</button>
+            <button onClick={() => setLocale("zh-Hant")}>中文</button> */}
             <Routers setLocale={setLocale} />
           </IntlProvider>
         </PerfectScrollbar>
