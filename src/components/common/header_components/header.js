@@ -1,7 +1,5 @@
 import React, { Fragment, useState } from "react";
 import SearchHeader from "./searchHeader";
-import Notification from "./notification";
-import UserMenu from "./user-menu";
 import Language from "./language";
 import {
   AlignLeft,
@@ -118,15 +116,7 @@ const Header = ({ setLocale, children }) => {
                   3
                 </span>
                 <span className="dot"></span>
-                <Notification />
               </li>
-              <li>
-                <a href="#javaScript" onClick={showRightSidebar}>
-                  <MessageSquare />
-                  <span className="dot"></span>
-                </a>
-              </li>
-              <UserMenu />
             </ul>
             <div
               className="d-lg-none mobile-toggle pull-right"

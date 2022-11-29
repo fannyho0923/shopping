@@ -12,11 +12,11 @@ export const MENUITEMS = [
         title: "商品清單",
         type: "link",
       },
-      {
-        path: "/products/product-list",
-        title: "商城預覽",
-        type: "link",
-      },
+      // {
+      //   path: "/products/product-list",
+      //   title: "商城預覽",
+      //   type: "link",
+      // },
       {
         path: "/products/product-detail",
         title: "商品預覽",
@@ -70,9 +70,9 @@ export const MENUITEMS = [
     icon: DollarSign,
     type: "sub",
     active: false,
-    children: [
-      { path: "/get-product/get-product", title: "到店取貨系統", type: "link" },
-    ],
+    path: "/get-product/get-product",
+    title: "到店取貨系統",
+    type: "link",
   },
   {
     title: "贈品後台",

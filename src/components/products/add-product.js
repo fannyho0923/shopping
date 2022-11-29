@@ -38,9 +38,7 @@ const Add_product = () => {
   ]);
 
   const [open, setOpen] = useState(false);
-  const [startDateTime, onChangeStartDateTime] = useState(
-    new Date().setMinutes(new Date().getMinutes() + 1)
-  );
+  const [startDateTime, onChangeStartDateTime] = useState(new Date());
   const [endDateTime, onChangeEndDateTime] = useState(
     new Date().setMinutes(new Date().getMinutes() + 1)
   );
