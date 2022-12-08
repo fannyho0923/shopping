@@ -119,6 +119,7 @@ const Datatable = ({
       name: <b>{Capitalize(key.toString())}</b>,
       header: <b>{Capitalize(key.toString())}</b>,
       selector: (row) => row[key],
+      sortable: true,
       Cell: editable,
       style: {
         textAlign: "center",

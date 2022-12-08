@@ -82,13 +82,13 @@ const ProductType = () => {
 
   return (
     <Fragment>
-      <Breadcrumb title="Product Types" />
+      <Breadcrumb title="Orders" />
       <Container fluid={true}>
         <Row>
           <Col sm="12">
             <Card>
               <CardHeader>
-                <h5>Product Types</h5>
+                <h5>商品類別管理頁</h5>
               </CardHeader>
               <CardBody className="order-datatable">
                 <Datatable
@@ -117,7 +117,7 @@ const ProductType = () => {
                   type="button"
                   onClick={onOpenModal}
                 >
-                  ＋ Add Type
+                  ＋ 新增類別
                 </Button>
               </CardBody>
             </Card>
@@ -130,18 +130,18 @@ const ProductType = () => {
         >
           <ModalHeader toggle={onCloseModal}>
             <h5 className="modal-title f-w-600" id="exampleModalLabel2">
-              Add Type
+              新增贈品
             </h5>
           </ModalHeader>
           <ModalBody>
             <Form>
               <Label htmlFor="recipient-name" className="col-form-label">
-                Type Name :
+                贈品名稱 :
               </Label>
               <Input type="text" className="form-control" onChange={onChange} />
-              {/* <Label htmlFor="message-text" className="col-form-label">
+              <Label htmlFor="message-text" className="col-form-label">
                 範例:強效美白面膜
-              </Label> */}
+              </Label>
             </Form>
           </ModalBody>
           <ModalFooter>

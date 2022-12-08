@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const Language = ({ setLocale }) => {
+const Language = () => {
   return (
     <Fragment>
       <ul className="language-dropdown onhover-show-div p-20">

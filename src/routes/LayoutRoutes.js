@@ -19,8 +19,11 @@ import Digitalcategory from "../components/products/digital/digital-category";
 import Digitalprolist from "../components/products/digital/digital-pro-list";
 import Digitalsubcategory from "../components/products/digital/digital-sub-category";
 import Addproduct from "../components/products/add-product";
+import AddproductZh from "../components/products/add-productZh";
 import ProductType from "../components/products/product-types";
+import ProductTypeZh from "../components/products/product-typesZh";
 import Category from "../components/products/category";
+import CategoryZh from "../components/products/categoryZh";
 import Productdetail from "../components/products/product-detail";
 import Productlist from "../components/products/product-list";
 import Subcategory from "../components/products/sub-category";
@@ -35,11 +38,11 @@ import Listvendors from "../components/vendors/list-vendors";
 import GetProduct from "../components/getProduct/get-product";
 import Giveaway from "../components/giveaway/giveaway";
 
-const LayoutRoutes = ({ setLocale }) => {
+const LayoutRoutes = (props) => {
   return (
     <Fragment>
       <Routes>
-        <Route element={<App setLocale={setLocale} />}>
+        <Route element={<App {...props} />}>
           <Route
             path={`${process.env.PUBLIC_URL}/dashboard`}
             element={<Dashboard />}
@@ -48,6 +51,10 @@ const LayoutRoutes = ({ setLocale }) => {
           <Route
             path={`${process.env.PUBLIC_URL}/products/category`}
             element={<Category />}
+          />
+          <Route
+            path={`${process.env.PUBLIC_URL}/products/categoryZh`}
+            element={<CategoryZh />}
           />
           <Route
             path={`${process.env.PUBLIC_URL}/products/sub-category`}
@@ -66,8 +73,16 @@ const LayoutRoutes = ({ setLocale }) => {
             element={<Addproduct />}
           />
           <Route
+            path={`${process.env.PUBLIC_URL}/products/add-productZh`}
+            element={<AddproductZh />}
+          />
+          <Route
             path={`${process.env.PUBLIC_URL}/products/product-type`}
             element={<ProductType />}
+          />
+          <Route
+            path={`${process.env.PUBLIC_URL}/products/product-typeZh`}
+            element={<ProductTypeZh />}
           />
           <Route
             path={`${process.env.PUBLIC_URL}/products/digital/digital-category`}

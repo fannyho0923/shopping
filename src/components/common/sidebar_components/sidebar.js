@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import UserPanel from "./user-panel";
 import { Link } from "react-router-dom";
 import { MENUITEMS } from "../../../constants/menu";
+import { FormattedMessage } from "react-intl";
 
 // image import
 import logo from "../../../assets/images/dashboard/logo.png";
@@ -84,7 +85,10 @@ const Sidebar = () => {
           }}
         >
           <menuItem.icon />
-          <span>{menuItem.title}</span>
+          {/* <span>{menuItem.title}</span> */}
+          <span>
+            <FormattedMessage id={menuItem.id} />
+          </span>
           <i className="fa fa-angle-right pull-right"></i>
         </a>
       ) : (
@@ -97,7 +101,10 @@ const Sidebar = () => {
           onClick={() => setNavActive(menuItem)}
         >
           <menuItem.icon />
-          <span>{menuItem.title}</span>
+          {/* <span>{menuItem.title}</span> */}
+          <span>
+            <FormattedMessage id={menuItem.id} />
+          </span>
           {menuItem.children ? (
             <i className="fa fa-angle-right pull-right"></i>
           ) : (
@@ -136,7 +143,8 @@ const Sidebar = () => {
                   }}
                 >
                   <i className="fa fa-circle"></i>
-                  {childrenItem.title}{" "}
+                  {/* {childrenItem.title} */}
+                  <FormattedMessage id={childrenItem.id} />
                   <i className="fa fa-angle-right pull-right"></i>
                 </a>
               ) : (
@@ -150,7 +158,8 @@ const Sidebar = () => {
                   onClick={() => setNavActive(childrenItem)}
                 >
                   <i className="fa fa-circle"></i>
-                  {childrenItem.title}{" "}
+                  {/* {childrenItem.title} */}
+                  <FormattedMessage id={childrenItem.id} />
                 </Link>
               ) : (
                 ""

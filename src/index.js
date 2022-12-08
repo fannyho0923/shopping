@@ -9,26 +9,34 @@ import en from "./i18n/en.js";
 import zh from "./i18n/zh.js";
 
 const Root = () => {
+  // const [locale, setLocale] = useState(navigator.language);
+  // console.log(locale);
+  // let messages;
+
+  // // 根據使用者選擇的語系 locale 切換使用不同的 messages
+  // if (locale.includes("zh")) {
+  //   messages = zh;
+  // } else {
+  //   messages = en;
+  // }
+  // 設定語系
   const [locale, setLocale] = useState(navigator.language);
-  console.log(locale);
-  let messages;
-
-  // 根據使用者選擇的語系 locale 切換使用不同的 messages
-  if (locale.includes("zh")) {
-    messages = zh;
-  } else {
-    messages = en;
-  }
-
+  const lang = ["zh", "en"];
+  // console.log(locale)
+  // const locale = "zh";
   return (
     <React.StrictMode>
       <BrowserRouter basename={"/"}>
         <PerfectScrollbar>
-          <IntlProvider locale={locale} defaultLocale="en" messages={messages}>
-            {/* <FormattedMessage id="app.learn" values={{ name: "fanny" }} /> */}
-            {/* <button onClick={() => setLocale("en")}>英文</button>
-            <button onClick={() => setLocale("zh-Hant")}>中文</button> */}
-            <Routers setLocale={setLocale} />
+          {/* <IntlProvider locale={locale} defaultLocale="en" messages={messages}> */}
+          <IntlProvider
+            {...{ locale }}
+            key={locale}
+            defaultLocale={"zh"}
+            messages={(locale.includes("zh") && zh) || en}
+          >
+            <Routers {...{ lang, locale, setLocale }} />
+            {/* <Routers /> */}
           </IntlProvider>
         </PerfectScrollbar>
       </BrowserRouter>

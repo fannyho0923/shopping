@@ -1,18 +1,16 @@
 import React, { Fragment, useState } from "react";
-import SearchHeader from "./searchHeader";
-import Language from "./language";
 import {
   AlignLeft,
   Maximize2,
-  Bell,
   MessageSquare,
   MoreHorizontal,
 } from "react-feather";
+import { FormattedMessage } from "react-intl";
 
 //images
 import logo from "../../../assets/images/dashboard/logo.png";
 
-const Header = ({ setLocale, children }) => {
+const Header = ({ lang, locale, setLocale }) => {
   const [sidebar, setSidebar] = useState(true);
   const [rightSidebar, setRightSidebar] = useState(true);
   const [navMenus, setNavMenus] = useState(false);
@@ -94,28 +92,24 @@ const Header = ({ setLocale, children }) => {
           </div>
           <div className="nav-right col">
             <ul className={"nav-menus " + (navMenus ? "open" : "")}>
-              <li>{children}</li>
-              <li>
-                <SearchHeader />
-              </li>
               <li>
                 <a onClick={goFull} className="text-dark" href="#javaScript">
                   <Maximize2 />
                 </a>
               </li>
               <li className="onhover-dropdown">
-                <a className="txt-dark" href="#javaScript">
-                  <h6>EN</h6>
+                <a
+                  className="txt-dark"
+                  href="#javaScript"
+                  onClick={() =>
+                    setLocale(lang.find((lang) => lang !== locale))
+                  }
+                >
+                  <h6>
+                    <FormattedMessage id="locales.lang.text" />
+                  </h6>
                 </a>
-                <Language setLocale={setLocale} />
-              </li>
-
-              <li className="onhover-dropdown">
-                <Bell />
-                <span className="badge rounded-pill badge-primary pull-right notification-badge">
-                  3
-                </span>
-                <span className="dot"></span>
+                {/* <Language /> */}
               </li>
             </ul>
             <div

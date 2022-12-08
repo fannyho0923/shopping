@@ -44,7 +44,7 @@ const data = [
     payment_method: "Visa",
     order_status: <span className="badge badge-success">Delivery</span>,
     date: "Dec 10,18",
-    total: "$54671",
+    total: 54671,
   },
   {
     oder_id: "#51245",
@@ -52,7 +52,7 @@ const data = [
     payment_method: "Paypal",
     order_status: <span className="badge badge-success">Delivery</span>,
     date: "Jan 14,18",
-    total: "$6791",
+    total: 6791,
   },
   {
     oder_id: "#51245",
@@ -62,7 +62,7 @@ const data = [
     payment_method: "Debit Card",
     order_status: <span className="badge badge-warning">Processing</span>,
     date: "Mar 27,18",
-    total: "$8791",
+    total: 8791,
   },
 ];
 

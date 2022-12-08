@@ -104,14 +104,14 @@ const Add_product = () => {
   const handleValidSubmit = () => {};
   return (
     <Fragment>
-      <Breadcrumb title="Add Product" />
+      <Breadcrumb title="新增商品" />
 
       <Container fluid={true}>
         <Row>
           <Col sm="12">
             <Card>
               <CardHeader>
-                <h5>Add Product</h5>
+                <h5>新增商品</h5>
               </CardHeader>
               <CardBody>
                 <Row className="product-adding">
@@ -158,7 +158,7 @@ const Add_product = () => {
                       <div className="form form-label-center">
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4 mb-0">
-                            Category:
+                            類型:
                           </Label>
                           <div
                             style={{
@@ -185,7 +185,7 @@ const Add_product = () => {
                                     setTypeCondition(false);
                                   }}
                                 />
-                                Primary
+                                主要
                               </Label>
                               <Label
                                 style={{ marginLeft: "1rem" }}
@@ -198,7 +198,7 @@ const Add_product = () => {
                                   name="rdo-ani1"
                                   onClick={() => setTypeMajor(false)}
                                 />
-                                Other
+                                加價購
                               </Label>
                             </div>
                             {!typeMajor && (
@@ -214,7 +214,7 @@ const Add_product = () => {
                                       defaultChecked
                                       onClick={() => setTypeCondition(false)}
                                     />
-                                    unconditional
+                                    無條件
                                   </Label>
                                   <Label className="d-block form-label">
                                     <Input
@@ -223,7 +223,7 @@ const Add_product = () => {
                                       name="condition"
                                       onClick={() => setTypeCondition(true)}
                                     />
-                                    full price
+                                    滿額
                                   </Label>
                                   <Label className="d-block form-label">
                                     <Input
@@ -232,7 +232,7 @@ const Add_product = () => {
                                       name="condition"
                                       onClick={() => setTypeCondition(true)}
                                     />
-                                    full count
+                                    滿件
                                   </Label>
                                 </div>
                                 {typeCondition && (
@@ -242,7 +242,7 @@ const Add_product = () => {
                                     }}
                                   >
                                     <Label id="trtr" className="form-label">
-                                      condition
+                                      條件
                                     </Label>
                                     <Input name="條件" type="text" required />
                                   </div>
@@ -254,7 +254,7 @@ const Add_product = () => {
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4 mb-0">
-                            Porduct Name :
+                            商品名稱 :
                           </Label>
                           <div className="col-xl-8 col-sm-7">
                             <Input
@@ -270,7 +270,7 @@ const Add_product = () => {
                         <div style={{ display: "flex" }}>
                           <FormGroup className="form-group mb-3 row">
                             <Label className="col-xl-3 col-sm-4 mb-0">
-                              Selling Price :
+                              售價 :
                             </Label>
                             <div className="col-xl-8 col-sm-7">
                               <Input
@@ -285,7 +285,7 @@ const Add_product = () => {
                           </FormGroup>
                           <FormGroup className="form-group mb-3 row">
                             <Label className="col-xl-3 col-sm-4 mb-0">
-                              Original Price :
+                              原價 :
                             </Label>
                             <div className="col-xl-8 col-sm-7">
                               <Input
@@ -303,7 +303,7 @@ const Add_product = () => {
                       <div className="form">
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4 mb-0">
-                            Porduct Type :
+                            商品類別 :
                           </Label>
                           <div className="col-xl-8 col-sm-7">
                             <select
@@ -318,7 +318,7 @@ const Add_product = () => {
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4 mb-0">
-                            Stock :
+                            商品庫存 :
                           </Label>
                           <fieldset className="qty-box ms-0">
                             <div className="input-group bootstrap-touchspin">
@@ -359,16 +359,16 @@ const Add_product = () => {
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4 mb-0">
-                            State :
+                            供貨狀態 :
                           </Label>
                           <div className="col-xl-8 col-sm-7">
                             <select
                               className="form-control digits"
                               id="exampleFormControlSelect1"
                             >
-                              <option value="">In stock</option>
-                              <option value="">Sold out</option>
-                              <option value="">Close</option>
+                              <option value="">有現貨</option>
+                              <option value="">已完售</option>
+                              <option value="">關閉</option>
                             </select>
                           </div>
                         </FormGroup>
@@ -377,7 +377,7 @@ const Add_product = () => {
                             style={{ display: "flex", marginBottom: "1rem" }}
                           >
                             <Label className="col-xl-3 col-sm-4 mb-0">
-                              Sales Time :
+                              販售時間 :
                             </Label>
                             <div
                               style={{
@@ -395,7 +395,7 @@ const Add_product = () => {
                                     setEndTime(false);
                                   }}
                                 />
-                                Available now
+                                立即上架
                               </Label>
                               <Label
                                 style={{ marginLeft: "1rem" }}
@@ -408,12 +408,12 @@ const Add_product = () => {
                                   name="rdo-ani2"
                                   onClick={() => setEndTime(true)}
                                 />
-                                Available for a limited time
+                                限時上架
                               </Label>
                             </div>
                           </div>
                           <div className="form-group row">
-                            <Label className="col-xl-3 col-md-4">Start</Label>
+                            <Label className="col-xl-3 col-md-4">開始</Label>
                             <div className="col-md-7">
                               <DateTimePicker
                                 onChange={onChangeStartDateTime}
@@ -423,7 +423,7 @@ const Add_product = () => {
                           </div>
                           {endTime && (
                             <div className="form-group row">
-                              <Label className="col-xl-3 col-md-4">End</Label>
+                              <Label className="col-xl-3 col-md-4">結束</Label>
                               <div className="col-md-7">
                                 <DateTimePicker
                                   onChange={onChangeEndDateTime}
@@ -435,7 +435,7 @@ const Add_product = () => {
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4">
-                            Product Description :
+                            商品簡介 :
                           </Label>
                           <div className="col-xl-8 col-sm-7 description-sm">
                             <textarea
@@ -447,7 +447,7 @@ const Add_product = () => {
                         </FormGroup>
                         <FormGroup className="form-group mb-3 row">
                           <Label className="col-xl-3 col-sm-4">
-                            Product Info :
+                            商品資訊 :
                           </Label>
                           <div className="col-xl-8 col-sm-7 description-sm">
                             <textarea
@@ -460,10 +460,10 @@ const Add_product = () => {
                       </div>
                       <div className="offset-xl-3 offset-sm-4">
                         <Button type="submit" color="primary">
-                          Add
+                          新增
                         </Button>
                         <Button type="button" color="light">
-                          Discard
+                          取消
                         </Button>
                       </div>
                     </Form>
@@ -517,14 +517,14 @@ const Add_product = () => {
               color="primary"
               onClick={() => onCloseModal("VaryingMdo")}
             >
-              Update
+              更新
             </Button>
             <Button
               type="button"
               color="secondary"
               onClick={() => onCloseModal("VaryingMdo")}
             >
-              Close
+              取消
             </Button>
           </ModalFooter>
         </Modal> */}
