@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Breadcrumb from "../common/breadcrumb";
-import DateTimePicker from "react-datetime-picker";
+// import DateTimePicker from "react-datetime-picker";
 import {
   Card,
   CardBody,
@@ -22,6 +22,16 @@ import {
 import one from "../../assets/images/pro3/1.jpg";
 import user from "../../assets/images/user.png";
 import productTypes from "../../assets/data/productTypes";
+// import dayjs from "dayjs";
+import {
+  TextField,
+  // AdapterDayjs,
+  // LocalizationProvider,
+  // DateTimePicker,
+} from "@mui/material";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const Add_product = () => {
   const [value, setValue] = useState("");
@@ -71,6 +81,23 @@ const Add_product = () => {
 
   const onCloseModal = () => {
     setOpen(false);
+  };
+
+  const [valueStartTime, setValueStartTime] = React.useState(new Date());
+  const handleChangeStartValue = (newValue) => {
+    setValueStartTime(newValue);
+  };
+  // new Date(valueStartTime).setMinutes(
+  //   new Date(valueStartTime).getMinutes() + 1
+  // );
+  console.log(
+    new Date(valueStartTime).setMinutes(
+      new Date(valueStartTime).getMinutes() + 1
+    )
+  );
+  const [valueEndTime, setValueEndTime] = React.useState(new Date());
+  const handleChangeEndValue = (newValue) => {
+    setValueEndTime(newValue);
   };
 
   //	image upload
@@ -415,20 +442,39 @@ const Add_product = () => {
                           <div className="form-group row">
                             <Label className="col-xl-3 col-md-4">Start</Label>
                             <div className="col-md-7">
-                              <DateTimePicker
-                                onChange={onChangeStartDateTime}
-                                value={startDateTime}
-                              />
+                              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DateTimePicker
+                                  style={{ border: "1px solid #000" }}
+                                  value={valueStartTime}
+                                  onChange={handleChangeStartValue}
+                                  disablePast={true}
+                                  renderInput={(params) => (
+                                    <TextField {...params} />
+                                  )}
+                                />
+                              </LocalizationProvider>
                             </div>
                           </div>
                           {endTime && (
                             <div className="form-group row">
                               <Label className="col-xl-3 col-md-4">End</Label>
                               <div className="col-md-7">
-                                <DateTimePicker
+                                {/* <DateTimePicker
                                   onChange={onChangeEndDateTime}
                                   value={endDateTime}
-                                />
+                                /> */}
+                                <LocalizationProvider
+                                  dateAdapter={AdapterDayjs}
+                                >
+                                  <DateTimePicker
+                                    value={valueEndTime}
+                                    onChange={handleChangeEndValue}
+                                    disablePast={true}
+                                    renderInput={(params) => (
+                                      <TextField {...params} />
+                                    )}
+                                  />
+                                </LocalizationProvider>
                               </div>
                             </div>
                           )}

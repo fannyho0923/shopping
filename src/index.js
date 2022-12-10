@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import Routers from "./routes";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { FormattedMessage, FormattedNumber, IntlProvider } from "react-intl";
+import { IntlProvider } from "react-intl";
 import en from "./i18n/en.js";
 import zh from "./i18n/zh.js";
 
