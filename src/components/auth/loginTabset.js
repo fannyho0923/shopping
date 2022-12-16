@@ -1,17 +1,34 @@
-import React, { Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { Tabs, TabList, TabPanel, Tab } from "react-tabs";
 import { User, Unlock } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { login } from "../../../src/apis/admin/login";
 
 const LoginTabset = () => {
   const history = useNavigate();
+  const [accountId, setAccountId] = useState("");
+  const [accountPw, setAccountPw] = useState("");
 
   const clickActive = (event) => {
     document.querySelector(".nav-link").classList.remove("show");
     event.target.classList.add("show");
   };
 
+  // useEffect(() => {
+  //   login({ accountId: "jasonTest", accountPw: "jasonTest" });
+  // }, []);
+
+  const handleSubmit = async (e) => {
+    // console.log(accountId, accountPw);
+    e.preventDefault();
+    const res = await login({ accountId: accountId, accountPw: accountPw });
+    console.log(res.data.message);
+    if (res.data.message === "ok") {
+      localStorage.setItem("accessToken", res.data.data.accessToken);
+      history(`${process.env.PUBLIC_URL}/products/add-product`);
+    }
+  };
   const routeChange = () => {
     history(`${process.env.PUBLIC_URL}/products/add-product`);
   };
@@ -31,15 +48,16 @@ const LoginTabset = () => {
           </TabList>
 
           <TabPanel>
-            <Form className="form-horizontal auth-form">
+            <Form className="form-horizontal auth-form" onSubmit={handleSubmit}>
               <FormGroup>
                 <Input
                   required=""
                   name="login[username]"
-                  type="email"
                   className="form-control"
                   placeholder="Username"
                   id="exampleInputEmail1"
+                  value={accountId}
+                  onChange={(e) => setAccountId(e.target.value)}
                 />
               </FormGroup>
               <FormGroup>
@@ -49,6 +67,8 @@ const LoginTabset = () => {
                   type="password"
                   className="form-control"
                   placeholder="Password"
+                  value={accountPw}
+                  onChange={(e) => setAccountPw(e.target.value)}
                 />
               </FormGroup>
               <div className="form-terms">
@@ -61,7 +81,6 @@ const LoginTabset = () => {
                     />
                     Reminder Me{" "}
                     <span className="pull-right">
-                      {" "}
                       <a href="/#" className="btn btn-default forgot-pass p-0">
                         lost your password
                       </a>
@@ -70,11 +89,7 @@ const LoginTabset = () => {
                 </div>
               </div>
               <div className="form-button">
-                <Button
-                  color="primary"
-                  type="submit"
-                  onClick={() => routeChange()}
-                >
+                <Button color="primary" type="submit">
                   Login
                 </Button>
               </div>
