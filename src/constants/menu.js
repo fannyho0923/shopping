@@ -14,15 +14,21 @@ export const MENUITEMS = [
         type: "link",
       },
       {
-        path: "/products/categoryZh",
-        // title: "商品清單Zh",
-        id: "locales.categoryZh.text",
-        type: "link",
-      },
-      {
         path: "/products/add-product",
         // title: "新增商品",
         id: "locales.addProductEn.text",
+        type: "link",
+      },
+      {
+        path: "/products/product-type",
+        // title: "商品類別",
+        id: "locales.productTypeEn.text",
+        type: "link",
+      },
+      {
+        path: "/products/categoryZh",
+        // title: "商品清單Zh",
+        id: "locales.categoryZh.text",
         type: "link",
       },
       {
@@ -32,15 +38,9 @@ export const MENUITEMS = [
         type: "link",
       },
       {
-        path: "/products/product-type",
-        // title: "商品類別",
-        id: "locales.categoryEn.text",
-        type: "link",
-      },
-      {
         path: "/products/product-typeZh",
         // title: "商品類別",
-        id: "locales.categoryZh.text",
+        id: "locales.productTypeZh.text",
         type: "link",
       },
     ],

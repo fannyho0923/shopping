@@ -17,11 +17,11 @@ import {
 const List_user = () => {
   return (
     <Fragment>
-      <Breadcrumb title="User List" parent="Users" />
+      <Breadcrumb title="店家帳號列表" parent="帳戶" />
       <Container fluid={true}>
         <Card>
           <CardHeader>
-            <h5>User Details</h5>
+            <h5>店家帳號詳情</h5>
           </CardHeader>
           <CardBody>
             <div className="btn-popup pull-right">
