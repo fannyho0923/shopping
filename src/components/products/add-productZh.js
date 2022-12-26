@@ -105,7 +105,11 @@ const Add_product = () => {
     console.log(typeof newValue.$d);
     setProductData((pre) => ({
       ...pre,
-      startSaleDate: JSON.stringify(newValue.$d),
+      startSaleDate: Math.floor(
+        (newValue.$d.valueOf() - new Date().getTimezoneOffset() * 60 * 1000) /
+          1000 /
+          86400
+      ),
     }));
   };
   const [valueEndTime, setValueEndTime] = React.useState(new Date());
@@ -113,7 +117,11 @@ const Add_product = () => {
     setValueEndTime(newValue);
     setProductData((pre) => ({
       ...pre,
-      endSaleDate: JSON.stringify(newValue.$d),
+      endSaleDate: Math.floor(
+        (newValue.$d.valueOf() - new Date().getTimezoneOffset() * 60 * 1000) /
+          1000 /
+          86400
+      ),
     }));
   };
 
