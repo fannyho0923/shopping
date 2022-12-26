@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Breadcrumb from "../common/breadcrumb";
-// import DateTimePicker from "react-datetime-picker";
+
 import {
   Card,
   CardBody,
@@ -12,26 +12,19 @@ import {
   Input,
   Label,
   Row,
-  Table,
   Button,
   Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
 } from "reactstrap";
 import one from "../../assets/images/pro3/1.jpg";
 import user from "../../assets/images/user.png";
 import productTypes from "../../assets/data/productTypes";
+import statuseTypes from "../../assets/data/statuseTypes";
 // import dayjs from "dayjs";
-import {
-  TextField,
-  // AdapterDayjs,
-  // LocalizationProvider,
-  // DateTimePicker,
-} from "@mui/material";
+import { TextField } from "@mui/material";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { createProduct, createImg } from "../../../src/apis/product/product";
 
 const Add_product = () => {
   const [value, setValue] = useState("");
@@ -46,12 +39,85 @@ const Add_product = () => {
     { img: user },
     { img: user },
   ]);
-
   const [open, setOpen] = useState(false);
   const [startDateTime, onChangeStartDateTime] = useState(new Date());
   const [endDateTime, onChangeEndDateTime] = useState(
     new Date().setMinutes(new Date().getMinutes() + 1)
   );
+
+  const [productData, setProductData] = useState({
+    name: "",
+    price: null,
+    originalPrice: null,
+    stock: quantity,
+    startSaleDate: null,
+    endSaleDate: null,
+    description: "",
+    information: "",
+    typeId: productTypes[0].id,
+    categoryId: 1,
+    languageId: 1,
+    statusId: statuseTypes[0].id,
+  });
+
+  useEffect(() => {
+    setProductData((pre) => ({ ...pre, startSaleDate: startDateTime }));
+    setProductData((pre) => ({ ...pre, endSaleDate: endDateTime }));
+  }, [startDateTime, endDateTime]);
+
+  const handleValidSubmit = async (e) => {
+    e.preventDefault();
+    console.log(productData);
+    console.log(localStorage.getItem("accessToken"));
+
+    const res = await createProduct(
+      localStorage.getItem("accessToken"),
+      productData
+    );
+
+    for (let index = 0; index < dummyimgs.length; index++) {
+      const imgData = {
+        productId: res.data.data.product.id,
+        imageBASE64: dummyimgs[index].img,
+      };
+      await createImg(localStorage.getItem("accessToken"), imgData);
+    }
+  };
+
+  const handleChangeProductData = (e) => {
+    let data = e.target.value;
+    if (
+      e.target.name === "price" ||
+      e.target.name === "originalPrice" ||
+      e.target.name === "stock" ||
+      e.target.name === "typeId"
+    ) {
+      data = Number(data);
+    }
+    setProductData((pre) => ({ ...pre, [e.target.name]: data }));
+  };
+
+  const handleClickCategory = (id) => {
+    setProductData((pre) => ({ ...pre, categoryId: id }));
+  };
+
+  const [valueStartTime, setValueStartTime] = React.useState(new Date());
+  const handleChangeStartValue = (newValue) => {
+    setValueStartTime(newValue);
+    console.log(typeof newValue.$d);
+    setProductData((pre) => ({
+      ...pre,
+      startSaleDate: JSON.stringify(newValue.$d),
+    }));
+  };
+  const [valueEndTime, setValueEndTime] = React.useState(new Date());
+  const handleChangeEndValue = (newValue) => {
+    setValueEndTime(newValue);
+    setProductData((pre) => ({
+      ...pre,
+      endSaleDate: JSON.stringify(newValue.$d),
+    }));
+  };
 
   const onChange = (e) => {
     setValue(e);
@@ -73,6 +139,10 @@ const Add_product = () => {
   };
   const handleChange = (event) => {
     setQuantity(event.target.value);
+    setProductData((pre) => ({
+      ...pre,
+      stock: quantity,
+    }));
   };
 
   const onOpenModal = () => {
@@ -81,23 +151,6 @@ const Add_product = () => {
 
   const onCloseModal = () => {
     setOpen(false);
-  };
-
-  const [valueStartTime, setValueStartTime] = React.useState(new Date());
-  const handleChangeStartValue = (newValue) => {
-    setValueStartTime(newValue);
-  };
-  // new Date(valueStartTime).setMinutes(
-  //   new Date(valueStartTime).getMinutes() + 1
-  // );
-  console.log(
-    new Date(valueStartTime).setMinutes(
-      new Date(valueStartTime).getMinutes() + 1
-    )
-  );
-  const [valueEndTime, setValueEndTime] = React.useState(new Date());
-  const handleChangeEndValue = (newValue) => {
-    setValueEndTime(newValue);
   };
 
   //	image upload
@@ -128,7 +181,6 @@ const Add_product = () => {
     // toast.success("Successfully Deleted !");
   };
 
-  const handleValidSubmit = () => {};
   return (
     <Fragment>
       <Breadcrumb title="Add Product" />
@@ -205,12 +257,9 @@ const Add_product = () => {
                                   className="radio_animated"
                                   id="edo-ani3"
                                   type="radio"
-                                  name="rdo-ani1"
+                                  name="categoryId"
                                   defaultChecked
-                                  onClick={() => {
-                                    setTypeMajor(true);
-                                    setTypeCondition(false);
-                                  }}
+                                  onClick={() => handleClickCategory(1)}
                                 />
                                 Primary
                               </Label>
@@ -222,60 +271,12 @@ const Add_product = () => {
                                   className="radio_animated"
                                   id="edo-ani4"
                                   type="radio"
-                                  name="rdo-ani1"
-                                  onClick={() => setTypeMajor(false)}
+                                  name="categoryId"
+                                  onClick={() => handleClickCategory(2)}
                                 />
                                 Other
                               </Label>
                             </div>
-                            {!typeMajor && (
-                              <div
-                                style={{ display: "flex", margin: "0 1rem" }}
-                              >
-                                <div>
-                                  <Label className="d-block form-label">
-                                    <Input
-                                      className="radio_animated"
-                                      type="radio"
-                                      name="condition"
-                                      defaultChecked
-                                      onClick={() => setTypeCondition(false)}
-                                    />
-                                    unconditional
-                                  </Label>
-                                  <Label className="d-block form-label">
-                                    <Input
-                                      className="radio_animated"
-                                      type="radio"
-                                      name="condition"
-                                      onClick={() => setTypeCondition(true)}
-                                    />
-                                    full price
-                                  </Label>
-                                  <Label className="d-block form-label">
-                                    <Input
-                                      className="radio_animated"
-                                      type="radio"
-                                      name="condition"
-                                      onClick={() => setTypeCondition(true)}
-                                    />
-                                    full count
-                                  </Label>
-                                </div>
-                                {typeCondition && (
-                                  <div
-                                    style={{
-                                      marginLeft: "1rem",
-                                    }}
-                                  >
-                                    <Label id="trtr" className="form-label">
-                                      condition
-                                    </Label>
-                                    <Input name="條件" type="text" required />
-                                  </div>
-                                )}
-                              </div>
-                            )}
                           </div>
                           <div className="valid-feedback">Looks good!</div>
                         </FormGroup>
@@ -285,11 +286,13 @@ const Add_product = () => {
                           </Label>
                           <div className="col-xl-8 col-sm-7">
                             <Input
+                              value={productData.name}
                               className="form-control"
-                              name="product_name"
+                              name="name"
                               id="validationCustom01"
                               type="text"
                               required
+                              onChange={handleChangeProductData}
                             />
                           </div>
                           <div className="valid-feedback">Looks good!</div>
@@ -306,6 +309,7 @@ const Add_product = () => {
                                 id="validationCustom02"
                                 type="text"
                                 required
+                                onChange={handleChangeProductData}
                               />
                             </div>
                             <div className="valid-feedback">Looks good!</div>
@@ -317,10 +321,10 @@ const Add_product = () => {
                             <div className="col-xl-8 col-sm-7">
                               <Input
                                 className="form-control mb-0"
-                                name="price"
+                                name="originalPrice"
                                 id="validationCustom02"
                                 type="text"
-                                required
+                                onChange={handleChangeProductData}
                               />
                             </div>
                             <div className="valid-feedback">Looks good!</div>
@@ -336,9 +340,13 @@ const Add_product = () => {
                             <select
                               className="form-control digits"
                               id="exampleFormControlSelect1"
+                              name="typeId"
+                              onChange={handleChangeProductData}
                             >
                               {productTypes.map((v) => (
-                                <option key={v.name}>{v.name}</option>
+                                <option key={v.id} value={v.id}>
+                                  {v.name}
+                                </option>
                               ))}
                             </select>
                           </div>
@@ -347,7 +355,10 @@ const Add_product = () => {
                           <Label className="col-xl-3 col-sm-4 mb-0">
                             Stock :
                           </Label>
-                          <fieldset className="qty-box ms-0">
+                          <fieldset
+                            className="qty-box ms-0"
+                            style={{ width: "auto" }}
+                          >
                             <div className="input-group bootstrap-touchspin">
                               <div className="input-group-prepend">
                                 <Button
@@ -365,8 +376,10 @@ const Add_product = () => {
                               <Input
                                 className="touchspin form-control"
                                 type="text"
+                                name="stock"
                                 value={quantity}
                                 onChange={handleChange}
+                                required
                               />
                               <div className="input-group-append">
                                 <span className="input-group-text bootstrap-touchspin-postfix"></span>
@@ -392,10 +405,14 @@ const Add_product = () => {
                             <select
                               className="form-control digits"
                               id="exampleFormControlSelect1"
+                              name="statusId"
+                              onChange={handleChangeProductData}
                             >
-                              <option value="">In stock</option>
-                              <option value="">Sold out</option>
-                              <option value="">Close</option>
+                              {statuseTypes.map((v) => (
+                                <option key={v.id} value={v.id}>
+                                  {v.name}
+                                </option>
+                              ))}
                             </select>
                           </div>
                         </FormGroup>
@@ -440,7 +457,7 @@ const Add_product = () => {
                             </div>
                           </div>
                           <div className="form-group row">
-                            <Label className="col-xl-3 col-md-4">Start</Label>
+                            <Label className="col-xl-3 col-md-4">開始</Label>
                             <div className="col-md-7">
                               <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DateTimePicker
@@ -459,10 +476,6 @@ const Add_product = () => {
                             <div className="form-group row">
                               <Label className="col-xl-3 col-md-4">End</Label>
                               <div className="col-md-7">
-                                {/* <DateTimePicker
-                                  onChange={onChangeEndDateTime}
-                                  value={endDateTime}
-                                /> */}
                                 <LocalizationProvider
                                   dateAdapter={AdapterDayjs}
                                 >
@@ -488,6 +501,8 @@ const Add_product = () => {
                               className="form-control rounded"
                               id="exampleFormControlTextarea1"
                               rows="6"
+                              name="description"
+                              onChange={handleChangeProductData}
                             ></textarea>
                           </div>
                         </FormGroup>
@@ -500,6 +515,8 @@ const Add_product = () => {
                               className="form-control rounded"
                               id="exampleFormControlTextarea1"
                               rows="6"
+                              name="information"
+                              onChange={handleChangeProductData}
                             ></textarea>
                           </div>
                         </FormGroup>
@@ -519,61 +536,6 @@ const Add_product = () => {
             </Card>
           </Col>
         </Row>
-        {/* <Modal
-          isOpen={open}
-          toggle={onCloseModal}
-          style={{ overlay: { opacity: 0.1 } }}
-        >
-          <ModalHeader toggle={onCloseModal}>
-            <h5 className="modal-title f-w-600" id="exampleModalLabel2">
-              商品庫存進階設定
-            </h5>
-          </ModalHeader>
-          <ModalBody>
-            <Form>
-              <Label htmlFor="recipient-name" className="col-form-label">
-                商品名稱 :
-              </Label>
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>供貨狀態</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <select
-                        className="form-control digits"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>有現貨</option>
-                        <option>已完售</option>
-                        <option>關閉</option>
-                      </select>
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              type="button"
-              color="primary"
-              onClick={() => onCloseModal("VaryingMdo")}
-            >
-              Update
-            </Button>
-            <Button
-              type="button"
-              color="secondary"
-              onClick={() => onCloseModal("VaryingMdo")}
-            >
-              Close
-            </Button>
-          </ModalFooter>
-        </Modal> */}
       </Container>
     </Fragment>
   );

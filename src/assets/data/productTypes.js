@@ -33,16 +33,12 @@ import fashion19 from "../images/fashion/product/19.jpg";
 import fashion14 from "../images/fashion/product/14.jpg";
 const data = [
   {
-    number: "#51240",
-    name: "類別一",
+    id: 1,
+    name: "測試 Type 1",
   },
   {
-    number: "#51245",
-    name: "類別二",
-  },
-  {
-    number: "#51250",
-    name: "類別三",
+    id: 2,
+    name: "測試 Type 2",
   },
 ];
 
